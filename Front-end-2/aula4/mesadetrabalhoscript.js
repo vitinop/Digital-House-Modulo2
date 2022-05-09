@@ -4,5 +4,7 @@ nav.innerHTML =
   `;
 
 
-  const item = document.getElementById('item1');
+  
+  const changeColor = document.getElementById("defaultHeader")
+  changeColor.style.background = "green"
 
