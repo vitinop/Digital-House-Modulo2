@@ -1,4 +1,4 @@
-function play() {
+function jogar() {
     let playerScore = 0
     let computerScore = 0
     symbols = ["","Rock", "Paper", "Scissors"]
