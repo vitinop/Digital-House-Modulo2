@@ -5,6 +5,6 @@ nav.innerHTML =
 
 
   
-  const changeColor = document.getElementById("defaultHeader")
-  changeColor.style.background = "green"
+  const changeColor = document.querySelector(".animado")
+  changeColor.style.background = "red"
 
