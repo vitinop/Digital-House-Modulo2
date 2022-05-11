@@ -5,11 +5,13 @@ public class Cliente {
     private String nome;
     private double divida;
 
-    // Construtor padrão
+    // atributos - Construtor padrão
+
     public Cliente() {
     }
 
     // Construtor com parâmetros
+
     public Cliente(int numeroCliente, String nome) {
         this.numeroCliente = numeroCliente;
         this.nome = nome;
