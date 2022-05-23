@@ -12,11 +12,7 @@ imagens.forEach(function (_, contador){
 
 urlImagens.forEach(function(url, index) {
     const imagem = document.querySelector(`#imagem-${index +1}`);
-    imagem.setAttribute("src", url). addEventListener("click", function() {
-        window.open(url, "_blank");
-    })
-
-
+    imagem.setAttribute("src", url);
    
     
 });
