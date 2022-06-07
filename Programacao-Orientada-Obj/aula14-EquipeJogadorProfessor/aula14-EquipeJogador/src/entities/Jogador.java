@@ -1,6 +1,9 @@
 package entities;
 
-public class Jogador {
+// implements trata de interface, tem que usar os métodos
+// extends trata de herança, acesso a atributos e métodos da supérclasse
+
+public class Jogador implements Comparable<Jogador> {
 
     private int id;
     private int camisa;
@@ -54,5 +57,22 @@ public class Jogador {
 
     public void setTitular(boolean titular) {
         this.titular = titular;
+    }
+
+    /*
+    * Estamos indicando que se a camisa do jogador for menor,
+    * mande ele mais para a esquerda (-1), se for maior,
+    * mande para a direita (1) e se as camisas forem iguais
+    * não faça nada.*/
+
+    @Override
+    public int compareTo(Jogador o) {
+        if (this.camisa < o.camisa) {
+            return -1;
+        }
+        if (this.camisa > o.camisa) {
+            return 1;
+        }
+        return 0;
     }
 }
