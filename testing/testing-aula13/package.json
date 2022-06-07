@@ -1,4 +1,14 @@
 {
+  "name": "exemplocalc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "calc.js",
+  "scripts": {
+    "test": "jest --watchAll"
+
+  },
+  "author": "Victor",
+  "license": "ISC",
   "devDependencies": {
     "jest": "^28.1.0"
   }
