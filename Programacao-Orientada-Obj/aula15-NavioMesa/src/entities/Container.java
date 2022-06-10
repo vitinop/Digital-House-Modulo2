@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Container {
+
+//    atributos
     private int id;
     private String OriginCountry;
     private boolean danger;
@@ -15,7 +17,7 @@ public class Container {
         this.OriginCountry = originCountry;
         this.danger = danger;
     }
-
+//getters and setters
     public int getId() {
         return id;
     }
@@ -39,4 +41,6 @@ public class Container {
     public void setDanger(boolean danger) {
         this.danger = danger;
     }
+
+//    Métodos costumizados
 }
