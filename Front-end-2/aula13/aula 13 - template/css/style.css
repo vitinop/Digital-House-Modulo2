@@ -1,0 +1,39 @@
+@import url("http://fonts.cdnfonts.com/css/paciencia");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: 0;
+          box-sizing: 0;
+}
+
+body {
+  height: 100vh;
+  background-color: rgba(8, 7, 7, 0.986);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.form-container {
+  color: white;
+  font-size: 16px;
+  padding: 20px, 20px, 20px, 20px;
+}
+
+.form-container h1 {
+  color: rgba(213, 235, 16, 0.664);
+  font-size: 20px;
+  font-weight: 400;
+  font-family: 'Paciencia', sans-serif;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,14 @@
+@mixin fontsStyle1 {
+    color: rgba(213, 235, 16, 0.664);
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Paciencia', sans-serif;
+
+    
+}
+@mixin fontStyle2 {
+    color: white;
+    font-size: 16px;
+
+    
+}
