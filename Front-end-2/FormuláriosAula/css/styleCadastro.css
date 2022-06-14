@@ -9,8 +9,7 @@
 body {
     font-family: 'Kumbh Sans', sans-serif;
     height: 100vh;
-    background: rgb(2,225,251);
-    background: linear-gradient(159deg, rgba(2,225,251,1) 0%, rgba(45,119,253,1) 100%);
+    background-image: url(/img/BlueForest3.jpg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,7 +19,7 @@ body {
     width: 28vw;
     display: flex;
     justify-content: center;
-    background-color: aliceblue;
+    background-color: rgba(255, 255, 255, 0.311);
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -39,6 +38,12 @@ body {
     flex-direction: column;
     padding: 12px;
     position: relative;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 1.2rem;
+    
 }
 
 .formItem .fa-circle-check {
@@ -91,14 +96,14 @@ body {
 .formButton {
     margin: 15px 0 15px 0;
     padding: 15px;
-    border: none;
+    border: 2px solid black;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     cursor: pointer;
-    background-color: aqua;
+    background-color: transparent;
 }
 
 .formItem .fa-eye {
@@ -121,5 +126,7 @@ body {
     background-color: rgb(149, 253, 45);
     padding: 5px;
     border-radius: 5px;
-    display: none;
+    margin: 10px;
+    opacity: 0;
+    transition: all 1s linear;
 }

@@ -4,14 +4,16 @@ const email = document.getElementById('email');
 const confirmPassword = document.getElementById('confirmSenha');
 const form = document.getElementById('form');
 const error = document.querySelectorAll('.error');
-const formItem = document.querySelectorAll('.formItem')
-const openEye = document.getElementById('openEye')
-const slashedEye = document.getElementById('slashedEye')
+const formItem = document.querySelectorAll('.formItem');
+const openEye = document.getElementById('openEye');
+const slashedEye = document.getElementById('slashedEye');
+const confirmCadastro = document.querySelector('[data-target="confirmCadastro"]')
 
 var validUser = false;
 var validSenha = false;
 var validConfirmSenha = false;
 var validEmail = false;
+
 
 
 
@@ -21,6 +23,7 @@ form.addEventListener('submit', (e) => {
     checkName();
     checkPassword();
     checkEmail();
+   
     
     
   
@@ -32,13 +35,16 @@ form.addEventListener('submit', (e) => {
             mensagemError.push('O nome é obrigatório')
             error[0].innerText = mensagemError;
             formItem[0].classList.add('fail');
+            validUser = false;
+            
             
         }
         else {
             formItem[0].classList.remove('fail');
             error[0].innerText = null;
             formItem[0].classList.add('sucess');
-            
+            validUser = true;
+            e.preventDefault();
         
              
            
@@ -57,6 +63,7 @@ form.addEventListener('submit', (e) => {
             mensagemError.push('A senha é obrigatória')
             error[2].innerText = mensagemError;
             formItem[2].classList.add('fail');
+            validSenha = false;
            
 
         }
@@ -66,7 +73,7 @@ form.addEventListener('submit', (e) => {
             mensagemError.push('A senha deve ter no mínimo 6 caracteres')
             error[2].innerText = mensagemError;
             formItem[2].classList.add('fail');
-            return false;
+            validSenha = false;
         }
 
         else if (password.value.length > 15) {
@@ -74,6 +81,7 @@ form.addEventListener('submit', (e) => {
             mensagemError.push('A senha deve ter no máximo 15 caracteres')
             error[2].innerText = mensagemError;
             formItem[2].classList.add('fail');
+            validSenha = false;
          
         }
 
@@ -82,6 +90,7 @@ form.addEventListener('submit', (e) => {
             mensagemError.push('A senha deve ter uma letra maíuscula,um número e um caracter especial (-,*,#,>)')
             error[2].innerText = mensagemError;
             formItem[2].classList.add('fail');
+            validSenha = false;
           
 
 
@@ -92,6 +101,7 @@ form.addEventListener('submit', (e) => {
             mensagemError.push('A senha deve ter uma letra maíuscula,um número e um caracter especial (-,*,#,>)')
             error[2].innerText = mensagemError;
             formItem[2].classList.add('fail');
+            validSenha = false;
            
 
 
@@ -102,6 +112,7 @@ form.addEventListener('submit', (e) => {
             mensagemError.push('A senha deve ter uma letra maíuscula,um número e um caracter especial (-,*,#,>)')
             error[2].innerText = mensagemError;
             formItem[2].classList.add('fail');
+            validSenha = false;
         
 
         }
@@ -112,7 +123,8 @@ form.addEventListener('submit', (e) => {
             formItem[2].classList.remove('fail');
             error[2].innerText = null;
             formItem[2].classList.add('sucess');
-        
+            validSenha = true;
+            e.preventDefault();
            
            
 
@@ -120,14 +132,23 @@ form.addEventListener('submit', (e) => {
 
 
         
-        if (password.value != confirmPassword.value) {
+        if (password.value != confirmPassword.value || password.value.length == 0) {
             e.preventDefault();
             mensagemError.push('As senhas devem ser iguais')
             error[3].innerText = mensagemError;
             formItem[3].classList.add('fail');
+            validConfirmSenha = false;
 
 
 
+        }
+
+        else {
+            formItem[3].classList.remove('fail');
+            error[3].innerText = null;
+            formItem[3].classList.add('sucess');
+            validConfirmSenha = true;
+            e.preventDefault();
         }
 
 
@@ -145,6 +166,7 @@ form.addEventListener('submit', (e) => {
             mensagemError.push('O email é obrigatório')
             error[1].innerText = mensagemError;
             formItem[1].classList.add('fail');
+            validEmail = false;
            
 
         }
@@ -154,6 +176,7 @@ form.addEventListener('submit', (e) => {
             mensagemError.push('Caro usuario, você nao digitou um email certo')
             error[1].innerText = mensagemError;
             formItem[1].classList.add('fail');
+            validEmail = false;
             
 
             
@@ -164,6 +187,8 @@ form.addEventListener('submit', (e) => {
             formItem[1].classList.remove('fail');
             error[1].innerText = null;
             formItem[1].classList.add('sucess');
+            validEmail = true;
+            e.preventDefault();
        
             
            
@@ -177,9 +202,41 @@ form.addEventListener('submit', (e) => {
 
     }
 
-    
+    function cadastrar() {
+        if (validUser && validEmail && validSenha && validConfirmSenha) {
+            let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
+
+            listaUser.push(
+                {
+                    nomeCad: nome.value,
+                    senhaCad: password.value,
+                    emailCad: email.value 
+                }
+            )
+
+            localStorage.setItem('listaUser', JSON.stringify(listaUser)) // dois parametros: a key, e o valor da key
+
+
+
+            setTimeout(() => {
+                window.location.href = 'login.html'
+
+            }, 1500)
+
+        }
+
+        else {
+            console.log('Deu errado')
+
+        }
+    }
+
+    cadastrar()
 
 })
+
+
+
 
 
 function eyeChecker() {
@@ -200,7 +257,6 @@ function eyeChecker() {
 }
 
 eyeChecker();
-
 
 
 
